@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google - Simulación de Página de Búsqueda</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://www.gstatic.com/webp/gallery/1.jpg'); /* Fondo de mayor resolución */
+            background-size: cover;
+            background-position: center;
+            color: #202124;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: black;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 64px;
+            font-family: 'Arial', sans-serif;
+        }
+        .google-color {
+            color: #4285F4; /* Azul */
+        }
+        .google-color:nth-child(2) {
+            color: #EA4335; /* Rojo */
+        }
+        .google-color:nth-child(3) {
+            color: #FBBC05; /* Amarillo */
+        }
+        .google-color:nth-child(4) {
+            color: #4285F4; /* Azul */
+        }
+        .google-color:nth-child(5) {
+            color: #34A853; /* Verde */
+        }
+        .google-color:nth-child(6) {
+            color: #EA4335; /* Rojo */
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .search-container input {
+            width: 70%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 24px;
+            border: 1px solid #dfe1e5;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+            outline: none;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 24px;
+            background-color: #f8f9fa;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+            cursor: pointer;
+            outline: none;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buttons button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>
+            <span class="google-color">G</span>
+            <span class="google-color">o</span>
+            <span class="google-color">o</span>
+            <span class="google-color">g</span>
+            <span class="google-color">l</span>
+            <span class="google-color">e</span>
+        </h1>
+        <div class="search-container">
+            <form id="searchForm" action="https://www.google.com/search" method="get">
+                <input type="text" name="q" placeholder="Busca en Google o escribe una URL">
+                <button type="submit">Buscar con Google</button>
+                <button type="button" id="feelingLucky">Voy a tener suerte</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('feelingLucky').addEventListener('click', function() {
+            const query = document.querySelector('input[name="q"]').value;
+            if (query.trim() !== "") {
+                window.location.href = `https://www.google.com/search?q=${query}&btnI=Im+Feeling+Lucky`;
+            } else {
+                alert('Por favor, ingrese una consulta de búsqueda.');
+            }
+        });
+    </script>
+</body>
+</html>

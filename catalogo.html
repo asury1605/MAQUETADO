@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product-card button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Catálogo de Productos</h1>
+        <div id="productCatalog" class="row">
+            
+        </div>
+        <div id="productDetails" class="mt-5">
+            
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        
+        const products = [
+            {
+                id: 1,
+                name: 'MR',
+                marca:'BURBERRY',
+                price: 2740,
+                quantity: '100 ml',
+                image: 'https://www.bellaroma.mx/wp-content/uploads/2021/12/burberry-mr-burberry.jpg'
+            },
+            {
+                id: 2,
+                name: 'ENCOUNTER',
+                marca:'CALVIN KLEIN',
+                price: 625,
+                quantity: '100 ml',
+                image: 'https://www.bellaroma.mx/wp-content/uploads/2021/12/calvin-clain-encounter.jpg'
+            },
+            {
+                id: 3,
+                name: 'BLACK 212 VIP',
+                marca:'CAROLINA HERRERA',
+                price: 1949,
+                quantity: '100 ml',
+                image: 'https://www.bellaroma.mx/wp-content/uploads/2021/12/carolina-herrera-black-vip.jpg'
+            },
+            
+            {
+                id: 4,
+                name: 'ACQUA DI GIO',
+                marca:' DOLCE GABANNA',
+                price: 3750,
+                quantity: '125 ml',
+                image: 'https://www.bellaroma.mx/wp-content/uploads/2021/12/giorgio-armani-aquia-di-gio.jpg'
+            },
+            {
+                id: 5,
+                name: 'DIOR HOMEE COLOGNE',
+                marca:'CHRISTIAN DIOR',
+                price: 2930,
+                quantity: '125 ml',
+                image: 'https://www.bellaroma.mx/wp-content/uploads/2021/12/dior-homme-cologne.jpg'
+            },
+            {
+                id: 6,
+                name: 'GENTLEMAN',
+                marca:'GIVENCHY',
+                price: 3050,
+                quantity: '100ml',
+                image: 'https://www.bellaroma.mx/wp-content/uploads/2021/12/givenchy-gentleman-agua-para-tocador.jpg'
+            },
+            {
+                id: 7,
+                name: 'I´HOMME IDEAL',
+                marca:' GUERLAIN',
+                price: 2790,
+                quantity: '100 ml',
+                image: 'https://www.bellaroma.mx/wp-content/uploads/2021/12/guerlain-l-homme-ideal.jpg'
+            },
+            {
+                id: 8,
+                name: 'HUGO',
+                marca:' HUGO BOSS',
+                price: 3350,
+                quantity: '200 ml',
+                image: 'https://www.bellaroma.mx/wp-content/uploads/2021/12/hugo-boss-just-different.jpg'
+            },
+            {
+                id: 9,
+                name: 'POLO',
+                marca:'RALPH LAUREN',
+                price: 3280,
+                quantity: '200 ml',
+                image: 'https://www.bellaroma.mx/wp-content/uploads/2021/12/ralph-lauren-polo-black.jpg'
+            }
+        ];
+
+        m  
+        function loadProductCatalog() {
+            const catalogContainer = document.getElementById('productCatalog');
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('col-md-4');
+                productCard.innerHTML = `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <button class="btn btn-primary" onclick="showProductDetails(${product.id})">Ver Detalles</button>
+                    </div>
+                `;
+                catalogContainer.appendChild(productCard);
+            });
+        }
+
+       
+        function showProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            const detailsContainer = document.getElementById('productDetails');
+            detailsContainer.innerHTML = `
+                <h2>Detalles del Producto</h2>
+                <p><strong>Nombre:</strong> ${product.name}</p>
+                <p><strong>Precio:</strong> $${product.price}</p>
+                <p><strong>Cantidad:</strong> ${product.quantity}</p>
+                <img src="${product.image}" alt="${product.name}" style="max-width: 200px; border-radius: 5px;">
+            `;
+        }
+
+       
+        document.addEventListener('DOMContentLoaded', loadProductCatalog);
+    </script>
+</body>
+</html>

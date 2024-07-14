@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Básico</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #b3e5fc; 
+            color: #01579b; 
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        h2 {
+            color: black;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h2 img {
+            margin-left: 10px;
+            width: 40px;
+            height: 40px;
+        }
+        .btn-primary {
+            background-color: #01579b;
+            border-color: #01579b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="form-container">
+            <h2>
+                Formulario Básico
+
+            </h2>
+            <form id="basic-form">
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" class="form-control" id="apellido" placeholder="Apellido (como se muestra en su pasaporte)" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Su nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha-nacimiento">Fecha de nacimiento:</label>
+                    <input type="date" class="form-control" id="fecha-nacimiento" required>
+                </div>
+                <div class="form-group">
+                    <label for="ciudad-nacimiento">Ciudad de nacimiento:</label>
+                    <input type="text" class="form-control" id="ciudad-nacimiento" placeholder="Ciudad de nacimiento" required>
+                </div>
+                <div class="form-group">
+                    <label for="pais-nacimiento">País de nacimiento:</label>
+                    <input type="text" class="form-control" id="pais-nacimiento" placeholder="País de nacimiento" required>
+                </div>
+                <div class="form-group">
+                    <label for="nacionalidad">Nacionalidad:</label>
+                    <input type="text" class="form-control" id="nacionalidad" placeholder="Su nacionalidad" required>
+                </div>
+                <div class="form-group">
+                    <label for="pasaporte">Número de pasaporte:</label>
+                    <input type="text" class="form-control" id="pasaporte" placeholder="Número de pasaporte" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('basic-form').addEventListener('submit', function(event) {
+            var form = event.target;
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+                alert('Por favor, complete todos los campos antes de enviar el formulario.');
+            }
+            form.classList.add('was-validated');
+        }, false);
+    </script>
+</body>
+</html>

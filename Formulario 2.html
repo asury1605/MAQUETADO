@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Ejercicio 2</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #36ac3a; 
+            color: #0e1114; 
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        h2 {
+            color: black;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn-primary {
+            background-color: #015d9b;
+            border-color: #01579b;
+        }
+        .btn-secondary {
+            background-color: #c01e1e;
+            border-color: #9e9e9e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="form-container">
+            <h2>Formulario Ejercicio 2</h2>
+            <form id="exercise2-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" class="form-control" id="correo" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <label for="url">URL:</label>
+                    <input type="url" class="form-control" id="url" placeholder="URL de tu blog" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" class="form-control" id="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="tiempo">Tiempo:</label>
+                    <input type="number" class="form-control" id="tiempo" placeholder="Tiempo" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha-hora">Fecha y hora:</label>
+                    <input type="datetime-local" class="form-control" id="fecha-hora" required>
+                </div>
+                <div class="form-group">
+                    <label for="mes">Mes:</label>
+                    <input type="month" class="form-control" id="mes" required>
+                </div>
+                <div class="form-group">
+                    <label for="semana">Semana:</label>
+                    <input type="week" class="form-control" id="semana" required>
+                </div>
+                <div class="form-group">
+                    <label for="numero">Número (min -10, max 10):</label>
+                    <input type="number" class="form-control" id="numero" min="-10" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" class="form-control" id="telefono" placeholder="Teléfono" required>
+                </div>
+                <div class="form-group">
+                    <label for="termino">Término de búsqueda:</label>
+                    <input type="search" class="form-control" id="termino" placeholder="Término de búsqueda" required>
+                </div>
+                <div class="form-group">
+                    <label for="color">Color favorito:</label>
+                    <input type="color" class="form-control" id="color" required>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-secondary">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('exercise2-form').addEventListener('submit', function(event) {
+            var form = event.target;
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+                alert('Por favor, complete todos los campos antes de enviar el formulario.');
+            }
+            form.classList.add('was-validated');
+        }, false);
+    </script>
+</body>
+</html>
